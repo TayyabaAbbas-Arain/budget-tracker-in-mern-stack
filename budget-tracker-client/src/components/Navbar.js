@@ -1,27 +1,15 @@
+// src/components/Navbar.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-  const isLoggedIn = localStorage.getItem("token");
-
   return (
-    <nav className="p-4 bg-blue-600 text-white flex justify-between">
-      <h1 className="text-xl font-bold">Budget Tracker</h1>
+    <nav className="bg-blue-600 text-white p-4 flex justify-between items-center rounded-xl shadow-md">
+      <h1 className="text-xl font-bold">💰 Budget Tracker</h1>
       <div className="space-x-4">
-        {isLoggedIn ? (
-          <>
-            <Link to="/dashboard">Dashboard</Link>
-            <button onClick={() => {
-              localStorage.removeItem("token");
-              window.location.href = "/login";
-            }}>Logout</button>
-          </>
-        ) : (
-          <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
-          </>
-        )}
+        <Link to="/" className="hover:underline">Home</Link>
+        <Link to="/login" className="hover:underline">Login</Link>
+        <Link to="/register" className="hover:underline">Register</Link>
       </div>
     </nav>
   );
