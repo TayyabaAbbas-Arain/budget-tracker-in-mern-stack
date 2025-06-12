@@ -1,12 +1,13 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
-    <div>
-          WELCOME TO BUDGET TRACKER APP
+    <div className="App">
+      <Dashboard />
     </div>
-    
   );
 }
 
