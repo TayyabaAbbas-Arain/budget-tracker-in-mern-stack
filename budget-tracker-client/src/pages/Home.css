@@ -1,0 +1,61 @@
+.home-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90vh;
+  background: linear-gradient(135deg, #3f87a6, #ebf8e1, #f69d3c);
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-content {
+  background: #ffffffc9;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #555;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.btn {
+  padding: 10px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s ease;
+}
+
+.login-btn {
+  background-color: #007bff;
+}
+
+.register-btn {
+  background-color: #28a745;
+}
+
+.login-btn:hover {
+  background-color: #0056b3;
+}
+
+.register-btn:hover {
+  background-color: #1e7e34;
+}
