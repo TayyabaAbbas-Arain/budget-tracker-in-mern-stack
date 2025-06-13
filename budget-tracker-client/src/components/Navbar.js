@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../styles/Navbar.css';
 
 const Navbar = () => {
   return (
-    <nav className="bg-blue-600 text-white p-4 flex justify-between items-center rounded-xl shadow-md">
-      <h1 className="text-xl font-bold">💰 Budget Tracker</h1>
-      <div className="space-x-4">
-        <Link to="/" className="hover:underline">Home</Link>
-        <Link to="/login" className="hover:underline">Login</Link>
-        <Link to="/register" className="hover:underline">Register</Link>
+    <nav className="navbar">
+      <div className="navbar-logo">
+        💰 Budget Tracker
+      </div>
+      <div className="navbar-links">
+        <Link to="/">Home</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/register">Register</Link>
       </div>
     </nav>
   );
