@@ -1,12 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../styles/Navbar.css';
+import './Navbar.css';
+import logo from '../assets/logo.png'; // ✅ Correct path to logo image
 
 const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="navbar-logo">
-        💰 Budget Tracker
+        <img src={logo} alt="Budget Tracker Logo" />
+        <h1>Budget Tracker</h1>
       </div>
       <div className="navbar-links">
         <Link to="/">Home</Link>
