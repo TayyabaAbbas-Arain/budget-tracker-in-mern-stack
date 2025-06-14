@@ -1,4 +1,4 @@
-.register-container {
+.login-container {
   min-height: 80vh;
   display: flex;
   justify-content: center;
@@ -6,7 +6,7 @@
   background: #f0f2f5;
 }
 
-.register-box {
+.login-box {
   background: #ffffff;
   padding: 2rem 3rem;
   border-radius: 8px;
@@ -16,12 +16,12 @@
   text-align: center;
 }
 
-.register-box h2 {
+.login-box h2 {
   margin-bottom: 1.5rem;
   color: #333;
 }
 
-.register-box input {
+.login-box input {
   width: 100%;
   padding: 10px;
   margin: 0.5rem 0;
@@ -29,7 +29,7 @@
   border-radius: 4px;
 }
 
-.register-box button {
+.login-box button {
   width: 100%;
   padding: 10px;
   margin-top: 1rem;
@@ -40,7 +40,7 @@
   cursor: pointer;
 }
 
-.register-box button:hover {
+.login-box button:hover {
   background-color: #5a63d8;
 }
 
