@@ -1,11 +1,11 @@
 import axios from 'axios';
 
-// Create Axios instance with baseURL
+// Use full base URL to avoid confusion
 const API = axios.create({
-  baseURL: 'http://localhost:5000/api', // 👈 Backend server URL
+  baseURL: 'http://localhost:5000/api',
 });
 
-// 🔐 Automatically attach token to every request
+// Add token to every request if available
 API.interceptors.request.use((req) => {
   const token = localStorage.getItem('token');
   if (token) {
@@ -14,14 +14,8 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-// ✅ Auth APIs
-export const register = (formData) => API.post('/auth/register', formData);
-export const login = (formData) => API.post('/auth/login', formData);
-
-// ✅ Budget APIs
-export const getBudgets = () => API.get('/budgets');
-export const addBudget = (budget) => API.post('/budgets', budget);
-export const updateBudget = (id, budget) => API.put(`/budgets/${id}`, budget);
-export const deleteBudget = (id) => API.delete(`/budgets/${id}`);
-
 export default API;
+
+// Now both use API instance
+export const login = (formData) => API.post('/auth/login', formData);
+export const register = (formData) => API.post('/auth/register', formData);
