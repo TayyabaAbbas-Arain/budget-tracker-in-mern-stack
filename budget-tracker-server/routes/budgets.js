@@ -15,15 +15,27 @@ router.get('/', auth, async (req, res) => {
 
 // Add a budget
 router.post('/', auth, async (req, res) => {
-  const { title, amount } = req.body;
+  const { title, amount, category } = req.body;
+  if (!title || !amount || !category) {
+    return res.status(400).json({ message: 'All fields are required' });
+  }
+
   try {
-    const newBudget = new Budget({ user: req.user.id, title, amount });
-    const budget = await newBudget.save();
-    res.json(budget);
-  } catch(err) {
-    res.status(500).send('Server error');
+    const newBudget = new Budget({
+      user: req.user.id,
+      title,
+      amount,
+      category,
+    });
+
+    const saved = await newBudget.save();
+    res.json(saved);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
   }
 });
+
 
 // Update a budget
 router.put('/:id', auth, async (req, res) => {
