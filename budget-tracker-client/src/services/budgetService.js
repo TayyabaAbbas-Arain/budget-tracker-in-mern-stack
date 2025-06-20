@@ -5,11 +5,11 @@ export const addBudget = async (budgetData) => {
   const token = localStorage.getItem('token'); // ✅ Get token
   try {
     const res = await axios.post(
-      '/api/budgets', 
-      budgetData, 
+      '/api/budgets', // ✅ correct endpoint
+      budgetData,
       {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${token}`, // ✅ Send token here
         },
       }
     );
