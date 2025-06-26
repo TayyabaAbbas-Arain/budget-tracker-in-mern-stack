@@ -10,7 +10,6 @@ const Dashboard = () => {
   const [editMode, setEditMode] = useState(false);
   const [editId, setEditId] = useState(null);
 
-  // Fetch budgets
   const fetchBudgets = async () => {
     try {
       const res = await API.get('/budgets');
@@ -25,7 +24,6 @@ const Dashboard = () => {
     fetchBudgets();
   }, []);
 
-  // Add or Update budget
   const handleSubmit = async () => {
     if (!title || !amount || !category) return alert('Fill all fields!');
     try {
@@ -45,8 +43,10 @@ const Dashboard = () => {
     }
   };
 
-  // Delete budget
   const handleDelete = async (id) => {
+    const confirm = window.confirm('Are you sure you want to delete this budget?');
+    if (!confirm) return;
+
     try {
       await API.delete(`/budgets/${id}`);
       fetchBudgets();
@@ -55,7 +55,6 @@ const Dashboard = () => {
     }
   };
 
-  // Prepare edit form
   const handleEdit = (item) => {
     setTitle(item.title);
     setAmount(item.amount);
