@@ -58,15 +58,18 @@ router.put('/:id', auth, async (req, res) => {
 // Delete a budget
 router.delete('/:id', auth, async (req, res) => {
   try {
-    let budget = await Budget.findById(req.params.id);
-    if(!budget) return res.status(404).json({ message: 'Budget not found' });
-    if(budget.user.toString() !== req.user.id) return res.status(401).json({ message: 'Not authorized' });
+    const budget = await Budget.findById(req.params.id);
+    if (!budget) return res.status(404).json({ message: 'Budget not found' });
+    if (budget.user.toString() !== req.user.id)
+      return res.status(401).json({ message: 'Not authorized' });
 
     await budget.remove();
     res.json({ message: 'Budget removed' });
-  } catch(err) {
+  } catch (err) {
+    console.error(err);
     res.status(500).send('Server error');
   }
 });
+
 
 module.exports = router;
