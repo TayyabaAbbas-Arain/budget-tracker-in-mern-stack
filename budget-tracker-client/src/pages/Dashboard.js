@@ -7,14 +7,13 @@ const Dashboard = () => {
   const [title, setTitle] = useState('');
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
+  const [editMode, setEditMode] = useState(false);
+  const [editId, setEditId] = useState(null);
 
+  // Fetch budgets
   const fetchBudgets = async () => {
     try {
-      const res = await API.get('/budgets', {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
+      const res = await API.get('/budgets');
       setBudgets(res.data);
     } catch (error) {
       console.error(error);
@@ -26,45 +25,48 @@ const Dashboard = () => {
     fetchBudgets();
   }, []);
 
-  const handleAdd = async () => {
+  // Add or Update budget
+  const handleSubmit = async () => {
     if (!title || !amount || !category) return alert('Fill all fields!');
     try {
-      await API.post(
-        '/budgets',
-        { title, amount, category },
-        {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
-        }
-      );
+      if (editMode) {
+        await API.put(`/budgets/${editId}`, { title, amount, category });
+        setEditMode(false);
+        setEditId(null);
+      } else {
+        await API.post('/budgets', { title, amount, category });
+      }
       setTitle('');
       setAmount('');
       setCategory('');
       fetchBudgets();
     } catch (err) {
-      alert('Error adding budget.');
+      alert('Error saving budget.');
     }
   };
 
+  // Delete budget
   const handleDelete = async (id) => {
     try {
-      await API.delete(`/budgets/${id}`, {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem('token')}`,
-        },
-      });
+      await API.delete(`/budgets/${id}`);
       fetchBudgets();
     } catch (err) {
       alert('Error deleting budget.');
     }
   };
 
+  // Prepare edit form
+  const handleEdit = (item) => {
+    setTitle(item.title);
+    setAmount(item.amount);
+    setCategory(item.category);
+    setEditId(item._id);
+    setEditMode(true);
+  };
+
   return (
     <div className="dashboard-container">
-      <div className="dashboard-header">
-        <h2 className="dashboard-title">Your Budgets</h2>
-      </div>
+      <h2 className="dashboard-title">Your Budgets</h2>
 
       <div className="add-budget-form">
         <input
@@ -85,7 +87,18 @@ const Dashboard = () => {
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         />
-        <button onClick={handleAdd}>Add Budget</button>
+        <button onClick={handleSubmit}>{editMode ? 'Update' : 'Add'} Budget</button>
+        {editMode && (
+          <button className="cancel-btn" onClick={() => {
+            setEditMode(false);
+            setTitle('');
+            setAmount('');
+            setCategory('');
+            setEditId(null);
+          }}>
+            Cancel
+          </button>
+        )}
       </div>
 
       <div className="card-container">
@@ -99,8 +112,8 @@ const Dashboard = () => {
                 <div className="card-value">Rs {item.amount}</div>
                 <div className="card-category">{item.category}</div>
                 <div className="card-actions">
-                  {/* You can add edit functionality too */}
-                  <button onClick={() => handleDelete(item._id)}>Delete</button>
+                  <button onClick={() => handleEdit(item)}>Edit</button>
+                  <button onClick={() => handleDelete(item._id)} className="delete-btn">Delete</button>
                 </div>
               </div>
             </div>
