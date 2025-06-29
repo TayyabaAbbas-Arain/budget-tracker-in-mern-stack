@@ -1,3 +1,4 @@
+// src/pages/Dashboard.js
 import React, { useEffect, useState } from 'react';
 import API from '../services/api';
 import '../styles/Dashboard.css';
@@ -109,7 +110,7 @@ const Dashboard = () => {
               <div className="card-content">
                 <div className="card-title">{item.title}</div>
                 <div className="card-value">Rs {item.amount}</div>
-                <div className="card-category">{item.category}</div>
+                <div className="card-category">{item.category || 'N/A'}</div>
                 <div className="card-actions">
                   <button onClick={() => handleEdit(item)}>Edit</button>
                   <button onClick={() => handleDelete(item._id)} className="delete-btn">Delete</button>

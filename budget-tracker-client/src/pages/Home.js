@@ -1,3 +1,4 @@
+// src/pages/Home.js
 import React from 'react';
 import '../styles/Home.css';
 
@@ -7,7 +8,7 @@ const Home = () => {
   return (
     <div className="home-container">
       <div className="hero-content">
-        <h1 className="hero-title">Welcome to Budget Tracker 💸</h1>
+        <h1 className="hero-title">Welcome to Budget Pro 💸</h1>
         <p className="hero-subtitle">
           Track your income and expenses. Make smarter financial decisions.
         </p>

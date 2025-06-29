@@ -1,4 +1,4 @@
-// components/BudgetList.js
+// src/components/BudgetList.js
 import React from 'react';
 
 const BudgetList = ({ budgets }) => {
@@ -8,7 +8,7 @@ const BudgetList = ({ budgets }) => {
         <div key={index} className="p-2 border rounded shadow-sm">
           <h3 className="font-bold">{item.title}</h3>
           <p>Amount: ${item.amount}</p>
-          <p>Category: {item.category}</p>
+          <p>Category: {item.category || 'N/A'}</p>
         </div>
       ))}
     </div>

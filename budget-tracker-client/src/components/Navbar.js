@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import '../styles/Navbar.css';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const isLoggedIn = !!localStorage.getItem('token');
 
   const handleLogout = () => {
@@ -12,21 +12,50 @@ const Navbar = () => {
     navigate('/login');
   };
 
+  const currentPath = location.pathname;
+
   return (
     <nav className="navbar">
       <div className="navbar-logo">
         <img src={logo} alt="Budget Tracker Logo" />
         <h1>Budget Tracker</h1>
       </div>
+
       <div className="navbar-links">
-        <Link to="/">Home</Link>
-        {!isLoggedIn ? (
+        {/* Logged In */}
+        {isLoggedIn ? (
           <>
-            <Link to="/login">Login</Link>
-            <Link to="/register">Register</Link>
+            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/reports">Reports</Link>
+            <button onClick={handleLogout} className="logout-btn">Logout</button>
           </>
         ) : (
-          <button onClick={handleLogout} className="logout-btn">Logout</button>
+          <>
+            {currentPath === '/login' && (
+              <>
+                <Link to="/">Home</Link>
+                <Link to="/register">Register</Link>
+              </>
+            )}
+
+            {currentPath === '/register' && (
+              <>
+                <Link to="/">Home</Link>
+                <Link to="/login">Login</Link>
+              </>
+            )}
+
+            {currentPath === '/' && (
+              // No nav links on Home page (or you can add Home only if you want)
+              <></>
+            )}
+
+            {currentPath !== '/' && currentPath !== '/login' && currentPath !== '/register' && (
+              <>
+                <Link to="/">Home</Link>
+              </>
+            )}
+          </>
         )}
       </div>
     </nav>
