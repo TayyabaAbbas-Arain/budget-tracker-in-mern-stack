@@ -1,8 +1,9 @@
+// budget-tracker-server\server.js
 require('dotenv').config(); // ✅ Loads .env first
-console.log('MONGO_URI:', process.env.MONGO_URI); // ⬅️ Add this line to confirm
+console.log('MONGO_URI:', process.env.MONGO_URI); 
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require('cors');
+const cors  = require('cors');
 
 // Make sure these paths are correct
 const authRoutes = require('./routes/auth');

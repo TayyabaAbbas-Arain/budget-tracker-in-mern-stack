@@ -1,3 +1,5 @@
+// budget-tracker-server\controllers\budgetController.js
+
 const Budget = require('../models/Budget');
 
 exports.getBudgets = async (req, res) => {

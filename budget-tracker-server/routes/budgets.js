@@ -1,3 +1,4 @@
+//budget-tracker-server\routes\budgets.js
 const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/authMiddleware');
@@ -37,9 +38,9 @@ router.post('/', auth, async (req, res) => {
 });
 
 
-// Update a budget
+// Update a budget (PUT)
 router.put('/:id', auth, async (req, res) => {
-  const { title, amount } = req.body;
+  const { title, amount, category } = req.body;
   try {
     let budget = await Budget.findById(req.params.id);
     if(!budget) return res.status(404).json({ message: 'Budget not found' });
@@ -47,6 +48,7 @@ router.put('/:id', auth, async (req, res) => {
 
     budget.title = title || budget.title;
     budget.amount = amount || budget.amount;
+    budget.category = category || budget.category;
 
     await budget.save();
     res.json(budget);
@@ -63,10 +65,10 @@ router.delete('/:id', auth, async (req, res) => {
     if (budget.user.toString() !== req.user.id)
       return res.status(401).json({ message: 'Not authorized' });
 
-    await budget.remove();
+    await budget.deleteOne(); // or budget.remove()
     res.json({ message: 'Budget removed' });
   } catch (err) {
-    console.error(err);
+    console.error('Delete error:', err.message);
     res.status(500).send('Server error');
   }
 });
