@@ -81,6 +81,9 @@ Sole Developer — Designed and implemented the entire app.
 📎 Links
 🌐 Live App:https://tayyabaabbasarain-budget-tracker.netlify.app/
 💻 GitHub Repo:https://github.com/TayyabaAbbas-Arain/budget-tracker-in-mern-stack.git
+<<<<<<< HEAD
 
 ✨ Thank you for visiting!
 
+=======
+>>>>>>> 1a1c53c1de76bbac91f5d5b5530af8819ddc1ff1
