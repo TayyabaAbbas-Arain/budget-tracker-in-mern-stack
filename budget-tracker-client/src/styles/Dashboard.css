@@ -2,47 +2,40 @@
   padding: 20px;
   max-width: 900px;
   margin: auto;
-  
+}
+
+.dashboard-title {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
 }
 
 .dashboard-header {
   display: flex;
   justify-content: space-between;
-  text-align: center;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.logout-btn {
-  padding: 8px 16px;
-  background-color: #ff5c5c;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.logout-btn:hover {
-  background-color: #d64545;
-}
-
 .add-budget-form {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 30px;
-  flex-wrap: wrap;
 }
 
-.add-budget-form input {
+.add-budget-form input,
+.add-budget-form select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
   flex: 1;
+  min-width: 120px;
 }
 
 .add-budget-form button {
   padding: 10px 20px;
-  background-color: #6c63ff;
+  background-color: blue;
   color: white;
   border: none;
   border-radius: 6px;
@@ -50,7 +43,30 @@
 }
 
 .add-budget-form button:hover {
-  background-color: #4b42d6;
+  background-color: darkblue;
+}
+
+.cancel-btn {
+  background-color: gray;
+}
+
+.cancel-btn:hover {
+  background-color: darkgray;
+}
+
+.budget-filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.budget-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #444;
 }
 
 .card-container {
@@ -60,7 +76,7 @@
 }
 
 .budget-card {
-  background: white;
+  background: #fff;
   border: 1px solid #ddd;
   padding: 20px;
   border-radius: 8px;
@@ -75,26 +91,121 @@
 
 .card-title {
   font-weight: bold;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
+  color: #222;
 }
 
 .card-value {
   color: green;
+  font-weight: bold;
 }
 
 .card-category {
-  color: #555;
+  color: gray;
+}
+
+.card-actions {
+  margin-top: 10px;
 }
 
 .card-actions button {
   padding: 6px 12px;
-  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+/* Edit Button */
+.edit-btn {
+  background-color: #3498db; /* blue */
+}
+
+.edit-btn:hover {
+  background-color: #2980b9; /* darker blue */
+}
+
+/* Delete Button */
+.delete-btn {
+  background-color: red;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}
+
+.logout-btn {
+  padding: 8px 16px;
+  background-color: red;
   color: white;
   border: none;
   border-radius: 6px;
   cursor: pointer;
 }
 
-.card-actions button:hover {
-  background-color: #c0392b;
+.error-message {
+  background-color: #ffdddd;
+  color: #d8000c;
+  padding: 10px;
+  border: 1px solid #d8000c;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.success-message {
+  background-color: #ddffdd;
+  color: #4f8a10;
+  padding: 10px;
+  border: 1px solid #4f8a10;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.logout-btn:hover {
+  background-color: darkred;
+}
+
+.success-message {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ddffdd;
+  color: #256029;
+  border: 1px solid #256029;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 9999;
+  animation: fadeOut 3s forwards;
+}
+
+/* Optional: Error Message Bhi Same Styling */
+.error-message {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffe0e0;
+  color: #b30000;
+  border: 1px solid #b30000;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 9999;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

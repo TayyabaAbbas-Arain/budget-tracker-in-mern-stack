@@ -22,34 +22,37 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-links">
-        {/* Logged In */}
         {isLoggedIn ? (
           <>
-            <Link to="/dashboard">Dashboard</Link>
-            <Link to="/reports">Reports</Link>
+            {currentPath !== '/dashboard' && (
+              <Link to="/dashboard">Dashboard</Link>
+            )}
+            {currentPath !== '/reports' && (
+              <Link to="/reports">Reports</Link>
+            )}
             <button onClick={handleLogout} className="logout-btn">Logout</button>
           </>
         ) : (
           <>
+            {currentPath === '/' && (
+              <>
+                <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
+              </>
+            )}
             {currentPath === '/login' && (
               <>
                 <Link to="/">Home</Link>
                 <Link to="/register">Register</Link>
               </>
             )}
-
             {currentPath === '/register' && (
               <>
                 <Link to="/">Home</Link>
                 <Link to="/login">Login</Link>
               </>
             )}
-
-            {currentPath === '/' && (
-              // No nav links on Home page (or you can add Home only if you want)
-              <></>
-            )}
-
+            {/* For any other route when logged out, show Home only */}
             {currentPath !== '/' && currentPath !== '/login' && currentPath !== '/register' && (
               <>
                 <Link to="/">Home</Link>
