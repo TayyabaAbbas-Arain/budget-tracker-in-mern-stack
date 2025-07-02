@@ -209,3 +209,40 @@
     opacity: 0;
   }
 }
+
+.success-message-inline {
+  background-color: #ddffdd;
+  color: #256029;
+  border: 1px solid #256029;
+  padding: 10px 16px;
+  border-radius: 6px;
+  margin: 10px 0;
+  font-weight: 500;
+}
+.success-message-toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ddffdd;
+  color: #256029;
+  border: 1px solid #256029;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 9999;
+  animation: fadeOut 3s forwards;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

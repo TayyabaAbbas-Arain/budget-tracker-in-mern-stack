@@ -57,3 +57,13 @@
 .switch-text a:hover {
   text-decoration: underline;
 }
+
+.error-message-inline {
+  background-color: #ffdddd;
+  color: #d8000c;
+  padding: 10px;
+  border: 1px solid #d8000c;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+}

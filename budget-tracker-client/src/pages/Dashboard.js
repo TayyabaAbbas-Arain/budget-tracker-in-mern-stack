@@ -1,4 +1,3 @@
-// src/pages/Dashboard.js
 import React, { useEffect, useState } from 'react';
 import API from '../services/api';
 import '../styles/Dashboard.css';
@@ -72,10 +71,7 @@ const Dashboard = () => {
       setCustomCategory('');
       fetchBudgets();
 
-      // Auto hide success message after 3 sec
-      setTimeout(() => {
-        setSuccessMessage('');
-      }, 3000);
+      setTimeout(() => setSuccessMessage(''), 3000);
     } catch (err) {
       setFormError('Error saving budget. Please try again.');
     }
@@ -90,10 +86,7 @@ const Dashboard = () => {
       setSuccessMessage('Budget deleted successfully.');
       fetchBudgets();
 
-      // Auto hide success message after 3 sec
-      setTimeout(() => {
-        setSuccessMessage('');
-      }, 3000);
+      setTimeout(() => setSuccessMessage(''), 3000);
     } catch (err) {
       setFormError('Error deleting budget. Please try again.');
     }
@@ -142,7 +135,17 @@ const Dashboard = () => {
       <h2 className="dashboard-title">{editMode ? 'Edit Budget' : 'Add New Budget'}</h2>
 
       {formError && <div className="error-message">{formError}</div>}
-      {successMessage && <div className="success-message">{successMessage}</div>}
+
+      {/* Success message handling */}
+      {successMessage && (
+        <>
+          {successMessage.includes('deleted') ? (
+            <div className="success-message-toast">{successMessage}</div>
+          ) : (
+            <div className="success-message">{successMessage}</div>
+          )}
+        </>
+      )}
 
       <div className="add-budget-form">
         <input

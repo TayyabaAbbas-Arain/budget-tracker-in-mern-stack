@@ -1,53 +1,73 @@
-# Budget Tracker in MERN Stack
+Budget Tracker (MERN Stack)
+A simple and intuitive Budget Tracker web application built with MERN stack that allows users to:
+Add, edit, delete, and filter budgets.
+Securely register and login using JWT authentication.
+Track budgets by category and time period (last 7 / 30 days).
+View total budgets and total amount at a glance.
 
-A full-stack budget tracking application built with the MERN stack (MongoDB, ExpressJS, ReactJS, NodeJS). This app allows users to register, log in, and manage their income and expenses with a simple and intuitive interface.
+Live Demo 👉 https://dainty-malasada-65b9be.netlify.app
 
-## 🚀 Features
+🚀 Features
+✅ User Authentication
+Register (with strong password rules)
+Login / Logout (JWT-based)
 
-- User Registration & Login (Authentication)
-- Add, edit, delete income and expense entries (CRUD)
-- View list of all transactions
-- Track totals of income, expenses, and balance
-- Display budget summary in real-time
-- Chart (coming soon for data visualization)
-- Protected routes (accessible only to logged-in users)
-- Clean UI using React and CSS
-- Fully modular folder structure
+✅ Budget Management
+Add budget with title, amount, category (custom category support)
+Edit existing budget
+Delete budget
+Filter budgets (All, Last 7 Days, Last 30 Days)
+View total count and total amount
 
----
+✅ UI
+Responsive, clean, simple UI
+Success / error messages display (like real apps)
 
-## 🛠️ Tech Stack
+✅ Tech
+MERN stack (MongoDB, Express, React, Node.js)
+Axios for API requests
+CSS styling
 
-**Frontend:**  
-- ReactJS  
-- Axios  
-- React Router DOM
 
-**Backend:**  
-- Node.js  
-- Express.js  
-- MongoDB (Mongoose)  
-- JWT for authentication  
-- bcrypt for password hashing
+🛠 Tech Stack
+Layer	            Technology
+Frontend	        ReactJS, Axios, CSS
+Backend	            Node.js, Express.js
+Database	        MongoDB Atlas
+Authentication	    JWT (JSON Web Tokens)
+Deployment	        Netlify (Frontend), Glitch (Backend)
+Version Control	    GitHub
 
----
+📂 Folder Structure
+/client → React Frontend  
+/server → Node + Express Backend  
 
-## 🗂️ Folder Structure
+📝 Installation (Local)
+1️⃣ Clone repo
+git clone https://github.com/TayyabaAbbas-Arain/budget-tracker-in-mern-stack.git
+cd budget-tracker-in-mern-stack
 
-Tayyaba-Abbas-Arain_Final-EAD-Project/
-│
-├── budget-tracker-client/ # Frontend (React)
-│ └── src/
-│ ├── components/ # Reusable components
-│ ├── pages/ # Login, Register, Dashboard
-│ ├── services/ # API calls
-│ └── App.js # Routes and structure
-│
-├── budget-tracker-server/ # Backend (Express + Node)
-│ ├── controllers/ # authController, budgetController
-│ ├── middleware/ # JWT auth middleware
-│ ├── models/ # User and Budget schemas
-│ ├── routes/ # API route files
-│ └── server.js # Server entry point
-│
-└── README.md
+2️⃣ Setup backend
+cd budget-tracker-server
+npm install
+create .env file → Add MONGO_URI, JWT_SECRET, PORT
+npm run dev
+
+3️⃣ Setup frontend
+cd ../client
+npm install
+npm start
+
+💡 Future Improvements
+Improve Visualization
+Export budgets as CSV
+Pagination / infinite scroll
+Better UI/UX with frameworks like Tailwind or Material-UI
+
+📌 Author
+👤 Tayyaba Abbas Arain
+Sole Developer — Designed and implemented the entire app.
+
+📎 Links
+🌐 Live App:https://tayyabaabbasarain-budget-tracker.netlify.app/
+💻 GitHub Repo:https://github.com/TayyabaAbbas-Arain/budget-tracker-in-mern-stack.git
