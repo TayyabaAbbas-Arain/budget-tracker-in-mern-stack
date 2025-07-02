@@ -5,7 +5,7 @@ Securely register and login using JWT authentication.
 Track budgets by category and time period (last 7 / 30 days).
 View total budgets and total amount at a glance.
 
-Live Demo 👉 https://dainty-malasada-65b9be.netlify.app
+Live Demo 👉 [https://dainty-malasada-65b9be.netlify.app](https://tayyabaabbasarain-budget-tracker.netlify.app/)
 
 🚀 Features
 ✅ User Authentication
