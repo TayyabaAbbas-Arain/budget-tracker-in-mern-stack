@@ -1,11 +1,12 @@
-Budget Tracker (MERN Stack)
+Budget Pro – MERN Stack Budget Tracker
+
 A simple and intuitive Budget Tracker web application built with MERN stack that allows users to:
 Add, edit, delete, and filter budgets.
 Securely register and login using JWT authentication.
 Track budgets by category and time period (last 7 / 30 days).
 View total budgets and total amount at a glance.
 
-Live Demo 👉 https://dainty-malasada-65b9be.netlify.app
+Live Demo 👉 https://tayyabaabbasarain-budget-tracker.netlify.app/
 
 🚀 Features
 ✅ User Authentication
@@ -51,7 +52,16 @@ cd budget-tracker-in-mern-stack
 cd budget-tracker-server
 npm install
 create .env file → Add MONGO_URI, JWT_SECRET, PORT
+
+> Configure Environment Variables
+Create .env in /server folder:
+MONGO_URI=your_mongodb_connection_string
+JWT_SECRET=your_secret_key
+PORT=5000
+
+> Run backend
 npm run dev
+
 
 3️⃣ Setup frontend
 cd ../client
@@ -71,3 +81,6 @@ Sole Developer — Designed and implemented the entire app.
 📎 Links
 🌐 Live App:https://tayyabaabbasarain-budget-tracker.netlify.app/
 💻 GitHub Repo:https://github.com/TayyabaAbbas-Arain/budget-tracker-in-mern-stack.git
+
+✨ Thank you for visiting!
+
